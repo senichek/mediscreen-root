@@ -1,8 +1,8 @@
-c:\Openclassrooms\Project_9\patient\src\main\java\com\mediscreen\patient\configs\WebConfig.java
-c:\Openclassrooms\Project_9\patient\src\main\java\com\mediscreen\patient\services\PatientService.java
-c:\Openclassrooms\Project_9\patient\src\main\java\com\mediscreen\patient\services\PatientServiceImpl.java
-c:\Openclassrooms\Project_9\patient\src\main\java\com\mediscreen\patient\repos\PatientRepo.java
-c:\Openclassrooms\Project_9\patient\src\main\java\com\mediscreen\patient\controllers\PatientRestController.java
-c:\Openclassrooms\Project_9\patient\src\main\java\com\mediscreen\patient\models\Patient.java
-c:\Openclassrooms\Project_9\patient\src\main\java\com\mediscreen\patient\configs\SwaggerConfig.java
-c:\Openclassrooms\Project_9\patient\src\main\java\com\mediscreen\patient\PatientApplication.java
+C:\Openclassrooms\Project_9\mediscreen-root\patient\src\main\java\com\mediscreen\patient\repos\PatientRepo.java
+C:\Openclassrooms\Project_9\mediscreen-root\patient\src\main\java\com\mediscreen\patient\configs\SwaggerConfig.java
+C:\Openclassrooms\Project_9\mediscreen-root\patient\src\main\java\com\mediscreen\patient\controllers\PatientRestController.java
+C:\Openclassrooms\Project_9\mediscreen-root\patient\src\main\java\com\mediscreen\patient\services\PatientService.java
+C:\Openclassrooms\Project_9\mediscreen-root\patient\src\main\java\com\mediscreen\patient\services\PatientServiceImpl.java
+C:\Openclassrooms\Project_9\mediscreen-root\patient\src\main\java\com\mediscreen\patient\models\Patient.java
+C:\Openclassrooms\Project_9\mediscreen-root\patient\src\main\java\com\mediscreen\patient\PatientApplication.java
+C:\Openclassrooms\Project_9\mediscreen-root\patient\src\main\java\com\mediscreen\patient\configs\WebConfig.java
