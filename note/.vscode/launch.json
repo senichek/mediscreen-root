@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NoteApplication<note>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.mediscreen.note.NoteApplication",
+            "projectName": "note",
+            "args": ""
+        }
+    ]
+}

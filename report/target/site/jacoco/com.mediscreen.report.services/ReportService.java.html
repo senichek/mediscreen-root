@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReportService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">report</a> &gt; <a href="index.source.html" class="el_package">com.mediscreen.report.services</a> &gt; <span class="el_source">ReportService.java</span></div><h1>ReportService.java</h1><pre class="source lang-java linenums">package com.mediscreen.report.services;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import com.mediscreen.report.models.Note;
+import com.mediscreen.report.models.Patient;
+import com.mediscreen.report.models.Risk;
+
+import org.springframework.stereotype.Service;
+
+import lombok.extern.log4j.Log4j2;
+
+@Service
+<span class="fc" id="L18">@Log4j2</span>
+<span class="fc" id="L19">public class ReportService {</span>
+
+<span class="fc" id="L21">    private static List&lt;String&gt; triggers = List.of(&quot;Hémoglobine A1C&quot;, &quot;Microalbumine&quot;, &quot;Taille&quot;, &quot;Poids&quot;, &quot;Fumeur&quot;,</span>
+<span class="fc" id="L22">            &quot;Anormal&quot;, &quot;Cholestérol&quot;, &quot;Vertige&quot;, &quot;Rechute&quot;, &quot;Réaction&quot;, &quot;Anticorps&quot;);</span>
+
+    public String generateReport(Patient patient, List&lt;Note&gt; notes) {
+<span class="fc" id="L25">        String report = &quot;Not Available&quot;;</span>
+<span class="fc" id="L26">        int triggersAmount = calculateTriggers(notes);</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (triggersAmount == 0) {</span>
+<span class="fc" id="L28">            report = String.format(&quot;Patient: %s %s (age %s) diabetes assessment is: %s&quot;,</span>
+<span class="fc" id="L29">                    patient.getFirstName(), patient.getLastName(), calculateAge(patient.getBirthdate()), Risk.NONE);</span>
+        }
+<span class="fc bfc" id="L31" title="All 6 branches covered.">        if (triggersAmount &gt;= 2 &amp;&amp; triggersAmount &lt; 6 &amp;&amp; calculateAge(patient.getBirthdate()) &gt; 30) {</span>
+<span class="fc" id="L32">            report = String.format(&quot;Patient: %s %s (age %s) diabetes assessment is: %s&quot;, patient.getFirstName(),</span>
+<span class="fc" id="L33">                    patient.getLastName(), calculateAge(patient.getBirthdate()), Risk.BORDERLINE);</span>
+        }
+<span class="fc bfc" id="L35" title="All 6 branches covered.">        if (patient.getSex().equals(&quot;M&quot;) &amp;&amp; calculateAge(patient.getBirthdate()) &lt; 30 &amp;&amp; triggersAmount &gt;= 3) {</span>
+<span class="fc" id="L36">            report = String.format(&quot;Patient: %s %s (age %s) diabetes assessment is: %s&quot;, patient.getFirstName(),</span>
+<span class="fc" id="L37">                    patient.getLastName(), calculateAge(patient.getBirthdate()), Risk.IN_DANGER);</span>
+        }
+<span class="pc bpc" id="L39" title="2 of 6 branches missed.">        if (patient.getSex().equals(&quot;F&quot;) &amp;&amp; calculateAge(patient.getBirthdate()) &lt; 30 &amp;&amp; triggersAmount &gt;= 4) {</span>
+<span class="fc" id="L40">            report = String.format(&quot;Patient: %s %s (age %s) diabetes assessment is: %s&quot;, patient.getFirstName(),</span>
+<span class="fc" id="L41">                    patient.getLastName(), calculateAge(patient.getBirthdate()), Risk.IN_DANGER);</span>
+        }
+<span class="fc bfc" id="L43" title="All 4 branches covered.">        if (calculateAge(patient.getBirthdate()) &gt; 30 &amp;&amp; triggersAmount &gt;= 6) {</span>
+<span class="fc" id="L44">            report = String.format(&quot;Patient: %s %s (age %s) diabetes assessment is: %s&quot;, patient.getFirstName(),</span>
+<span class="fc" id="L45">                    patient.getLastName(), calculateAge(patient.getBirthdate()), Risk.IN_DANGER);</span>
+        }
+<span class="fc bfc" id="L47" title="All 6 branches covered.">        if (patient.getSex().equals(&quot;M&quot;) &amp;&amp; calculateAge(patient.getBirthdate()) &lt; 30 &amp;&amp; triggersAmount &gt;= 5) {</span>
+<span class="fc" id="L48">            report = String.format(&quot;Patient: %s %s (age %s) diabetes assessment is: %s&quot;, patient.getFirstName(),</span>
+<span class="fc" id="L49">                    patient.getLastName(), calculateAge(patient.getBirthdate()), Risk.EARLY_ONSET);</span>
+        }
+<span class="pc bpc" id="L51" title="1 of 6 branches missed.">        if (patient.getSex().equals(&quot;F&quot;) &amp;&amp; calculateAge(patient.getBirthdate()) &lt; 30 &amp;&amp; triggersAmount &gt;= 7) {</span>
+<span class="fc" id="L52">            report = String.format(&quot;Patient: %s %s (age %s) diabetes assessment is: %s&quot;, patient.getFirstName(),</span>
+<span class="fc" id="L53">                    patient.getLastName(), calculateAge(patient.getBirthdate()), Risk.EARLY_ONSET);</span>
+        }
+<span class="fc bfc" id="L55" title="All 4 branches covered.">        if (calculateAge(patient.getBirthdate()) &gt; 30 &amp;&amp; triggersAmount &gt;=8) {</span>
+<span class="fc" id="L56">            report = String.format(&quot;Patient: %s %s (age %s) diabetes assessment is: %s&quot;, patient.getFirstName(),</span>
+<span class="fc" id="L57">                    patient.getLastName(), calculateAge(patient.getBirthdate()), Risk.EARLY_ONSET);</span>
+        }
+<span class="fc" id="L59">        log.info(&quot;The report was generated for patientID={}&quot;, patient.getId());</span>
+<span class="fc" id="L60">        return report;</span>
+    }
+
+    public boolean isOlderThan30(Patient patient) {
+<span class="fc" id="L64">        LocalDate now = LocalDate.now();</span>
+<span class="fc" id="L65">        int age = Period.between(patient.getBirthdate(), now).getYears();</span>
+
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        if (age &gt; 30) {</span>
+<span class="fc" id="L68">            return true;</span>
+        } else {
+<span class="fc" id="L70">            return false;</span>
+        }
+    }
+
+    public int calculateTriggers(List&lt;Note&gt; notes) {
+<span class="fc" id="L75">        Set&lt;String&gt; matches = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L76">        triggers.forEach(trigger -&gt; {</span>
+<span class="fc" id="L77">            notes.forEach(note -&gt; {</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">                if (note.getObservation().toLowerCase().contains(trigger.toLowerCase())) {</span>
+<span class="fc" id="L79">                    matches.add(trigger);</span>
+                }
+<span class="fc" id="L81">            });</span>
+<span class="fc" id="L82">        });</span>
+<span class="fc" id="L83">        return matches.size();</span>
+    }
+
+    public int calculateAge(LocalDate birthdate) {
+<span class="fc" id="L87">        LocalDate now = LocalDate.now();</span>
+<span class="fc" id="L88">        int age = Period.between(birthdate, now).getYears();</span>
+<span class="fc" id="L89">        return age;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

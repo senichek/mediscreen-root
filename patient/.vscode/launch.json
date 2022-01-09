@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PatientApplication<patient>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.mediscreen.patient.PatientApplication",
+            "projectName": "patient",
+            "args": ""
+        }
+    ]
+}

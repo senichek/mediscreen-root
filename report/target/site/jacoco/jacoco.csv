@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+report,com.mediscreen.report.models,Risk,0,27,0,0,0,5,0,1,0,1
+report,com.mediscreen.report.models,Note,200,10,38,0,4,3,30,3,11,3
+report,com.mediscreen.report.models,Patient,305,34,62,0,3,7,41,10,10,10
+report,com.mediscreen.report.services,ReportService,0,426,3,41,0,48,3,27,0,8
+report,com.mediscreen.report.controllers,ReportController,0,25,0,0,0,5,0,2,0,2
+report,com.mediscreen.report,ReportApplication,5,3,0,0,2,1,1,1,1,1

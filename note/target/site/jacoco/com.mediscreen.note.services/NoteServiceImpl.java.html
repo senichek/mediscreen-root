@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NoteServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">note</a> &gt; <a href="index.source.html" class="el_package">com.mediscreen.note.services</a> &gt; <span class="el_source">NoteServiceImpl.java</span></div><h1>NoteServiceImpl.java</h1><pre class="source lang-java linenums">package com.mediscreen.note.services;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
+
+import com.mediscreen.note.models.Note;
+import com.mediscreen.note.repos.NoteRepo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import lombok.extern.log4j.Log4j2;
+
+@Service
+<span class="fc" id="L23">@Log4j2</span>
+<span class="fc" id="L24">public class NoteServiceImpl implements NoteService {</span>
+
+    @Autowired
+    private NoteRepo noteRepo;
+
+    @Autowired
+    private Validator validator;
+
+    @Override
+    public Note create(Note note, Integer ownerID) throws Exception {
+<span class="fc" id="L34">        note.setOwnerId(ownerID);</span>
+<span class="fc" id="L35">        note.setDate(LocalDate.now().toString());</span>
+        Note created;
+<span class="fc" id="L37">        Map&lt;String, String&gt; validationErrors = validate(note);</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (validationErrors.size() &gt; 0) {</span>
+<span class="fc" id="L39">            throw new Exception(validationErrors.toString());</span>
+        } else {
+<span class="fc" id="L41">            created = noteRepo.save(note);</span>
+<span class="fc" id="L42">            log.info(&quot;Created {}&quot;, created);</span>
+<span class="fc" id="L43">            return created;</span>
+        }
+    }
+
+    // If we &quot;create&quot; a Note with ID that is present in DB, the Note will be
+    // updated, the duplicate will not be created, this is why we can use
+    // &lt;noteService.create&gt; for updating the Notes.
+    @Override
+    public Note update(Note note) throws Exception {
+        Note updated;
+<span class="fc" id="L53">        Map&lt;String, String&gt; validationErrors = validate(note);</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (validationErrors.size() &gt; 0) {</span>
+<span class="fc" id="L55">            throw new Exception(validationErrors.toString());</span>
+        } else {
+<span class="fc" id="L57">            updated = noteRepo.save(note);</span>
+<span class="fc" id="L58">            log.info(&quot;Updated {}&quot;, updated);</span>
+<span class="fc" id="L59">            return updated;</span>
+        }
+    }
+
+    @Override
+    public List&lt;Note&gt; getAll() {
+<span class="fc" id="L65">        return noteRepo.findAll();</span>
+    }
+
+    @Override
+    public List&lt;Note&gt; getAllByOwnerId(Integer ownerID) throws Exception {
+<span class="fc" id="L70">        return noteRepo.getByOwnerId(ownerID);</span>
+    }
+
+    @Override
+    public Note getById(String noteId) throws Exception {
+<span class="fc" id="L75">        Optional&lt;Note&gt; findById = noteRepo.findById(noteId);</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if (findById.isPresent() == false) {</span>
+<span class="fc" id="L77">            throw new Exception((String.format(&quot;Entity with id %s does not exist.&quot;, noteId)));</span>
+        } else {
+<span class="fc" id="L79">            return findById.get();</span>
+        }
+    }
+
+    @Override
+    public Note deleteById(String noteId) throws Exception {
+<span class="fc" id="L85">        Optional&lt;Note&gt; findById = noteRepo.findById(noteId);</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        if (findById.isPresent() == false) {</span>
+<span class="fc" id="L87">            throw new Exception((String.format(&quot;Entity with id %s does not exist.&quot;, noteId)));</span>
+        } else {
+<span class="fc" id="L89">            noteRepo.deleteById(noteId);</span>
+<span class="fc" id="L90">            log.info(&quot;Deleted {}&quot;, findById.get());</span>
+<span class="fc" id="L91">            return findById.get();</span>
+        }
+    }
+
+    @Override
+    public Map&lt;String, String&gt; validate(Note note) {
+<span class="fc" id="L97">        Set&lt;ConstraintViolation&lt;Note&gt;&gt; validationErrors = validator.validate(note);</span>
+<span class="fc" id="L98">        Map&lt;String, String&gt; errorMessages = new HashMap&lt;&gt;();</span>
+        /*
+         * If there are validation errors we extract them and put them into the Map
+         * where the Key is the name of the property and the Value is the error message.
+         */
+<span class="fc bfc" id="L103" title="All 2 branches covered.">        if (validationErrors.size() &gt; 0) {</span>
+<span class="fc" id="L104">            Iterator&lt;ConstraintViolation&lt;Note&gt;&gt; iterator = validationErrors.iterator();</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">            while (iterator.hasNext()) {</span>
+<span class="fc" id="L106">                ConstraintViolation&lt;Note&gt; error = iterator.next();</span>
+<span class="fc" id="L107">                errorMessages.put(error.getPropertyPath().toString(), error.getMessage());</span>
+            }
+        }
+<span class="fc" id="L110">        return errorMessages;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,25 @@
+version: '3'
+services:
+  patient-db:
+    image: mysql
+    ports:
+      - 3307:3306
+    networks:
+      - mediscreen-app-net
+    environment:
+      #- MYSQL_USER=root - if we use "root" as a db userName we do not need to specify it.
+      - MYSQL_ROOT_PASSWORD=rootroot
+      - MYSQL_DATABASE=mediscreen
+  patient-rest-api:
+  # Path to the folder where the sub-project is located, in this case 
+  # it's /mediscreen_root/patient, so we can specify just /patient
+    build: /patient
+    ports:
+      - "8080:8080"
+    networks:
+      - mediscreen-app-net
+    depends_on:
+      - patient-db  
+
+networks:
+  mediscreen-app-net:

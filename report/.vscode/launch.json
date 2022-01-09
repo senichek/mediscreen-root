@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ReportApplication<report>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.mediscreen.report.ReportApplication",
+            "projectName": "report",
+            "args": ""
+        }
+    ]
+}

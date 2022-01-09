@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NoteApplication<note>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.mediscreen.note.NoteApplication",
+            "projectName": "note",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-PatientApplication<patient>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.mediscreen.patient.PatientApplication",
+            "projectName": "patient",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ReportApplication<report>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.mediscreen.report.ReportApplication",
+            "projectName": "report",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UiApplication<UI>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.mediscreen.UI.UiApplication",
+            "projectName": "UI",
+            "args": ""
+        }
+    ]
+}

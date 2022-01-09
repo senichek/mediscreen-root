@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>History</title>
+<link th:href="@{/css/main.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="main-container">
+		<!-- All the variables we work with come from model within the Controller. -->
+	<h2>History of patient with Id=<span th:text="${patientId}"></span>
+		<!-- It will result in the following URL: http://localhost:8082/patHistory/1?generateReport=true -->
+		<!-- See https://www.thymeleaf.org/doc/articles/standardurlsyntax.html -->
+		<a th:href="@{/patHistory/{pathParam}(pathParam=${patientId}, generateReport=true)}" class="btn btn-danger btn-md">Generate Report</a>
+		<div th:if="${report}">
+            <p th:text="${report}"  style="color: rgb(255, 19, 19)"></p>
+          </div>
+	</h2>
+	<!-- https://www.baeldung.com/spring-thymeleaf-path-variables -->
+		<a th:href="@{/patHistory/add/{pathParam}(pathParam=${patientId})}" class="btn btn-primary btn-sm">Add Note</a>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Note ID</th>
+					<th>Date</th>
+					<th>Observation</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="note: ${notes}">
+				  <td th:text="${note.id}">
+				  <td th:text="${note.date}">
+					  <!-- The "style" in "span" keeps the formatting which is present in Observations -->
+				  <td> <span style="white-space: pre-line" th:text="${note.observation}"></span> </td>
+					<!-- https://www.baeldung.com/spring-thymeleaf-path-variables -->
+					<td> <a th:href="@{/patHistory/update/{noteId}(noteId=${note.id})}" class="btn btn-link" role="button" aria-pressed="true">Edit</a> |  
+					   <a th:href="@{/patHistory/delete/{patientId}/{noteId}(patientId=${patientId}, noteId=${note.id})}" class="btn btn-link" role="button" aria-pressed="true">Delete</a>
+				  </td>
+			  </tr>
+			  </tbody>
+		</table>
+		<a th:href="@{/patient/list}" class="btn btn-primary btn-sm">Patients</a>
+</div>
+</body>
+</html>

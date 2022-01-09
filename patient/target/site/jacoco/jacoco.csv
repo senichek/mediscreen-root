@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+patient,com.mediscreen.patient.controllers,PatientRestController,0,47,0,0,0,6,0,6,0,6
+patient,com.mediscreen.patient.services,PatientServiceImpl,0,175,0,14,0,37,0,15,0,8
+patient,com.mediscreen.patient,PatientApplication,5,3,0,0,2,1,1,1,1,1
+patient,com.mediscreen.patient.configs,WebConfig,0,48,0,0,0,13,0,3,0,3
+patient,com.mediscreen.patient.configs,SwaggerConfig,0,29,0,0,0,11,0,3,0,3
+patient,com.mediscreen.patient.models,Patient,167,172,44,18,1,9,32,19,2,18

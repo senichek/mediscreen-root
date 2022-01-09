@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.mediscreen.patient.PatientRestControllerTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.332 s - in com.mediscreen.patient.PatientRestControllerTest

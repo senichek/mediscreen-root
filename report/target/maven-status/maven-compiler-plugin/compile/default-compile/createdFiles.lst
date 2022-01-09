@@ -1,0 +1,8 @@
+com\mediscreen\report\webClients\NoteFeignClient.class
+com\mediscreen\report\controllers\ReportController.class
+com\mediscreen\report\models\Risk.class
+com\mediscreen\report\ReportApplication.class
+com\mediscreen\report\webClients\PatientFeignClient.class
+com\mediscreen\report\models\Note.class
+com\mediscreen\report\models\Patient.class
+com\mediscreen\report\services\ReportService.class
