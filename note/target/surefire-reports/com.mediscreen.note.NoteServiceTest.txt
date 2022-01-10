@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.mediscreen.note.NoteServiceTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.787 s - in com.mediscreen.note.NoteServiceTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.309 s - in com.mediscreen.note.NoteServiceTest

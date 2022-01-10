@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "ui-patients", url = "localhost:8080")
+//@FeignClient(name = "ui-patients", url = "localhost:8080")
+@FeignClient(name = "ui-patients", url = "${patient.feign.client.url}") // URL is set up in .properties because we will use different URLs depending on the Profile.
 public interface PatientFeignClient {
 
     @GetMapping(value = "/rest/patient/all")

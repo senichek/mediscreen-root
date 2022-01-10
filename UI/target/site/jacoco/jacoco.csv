@@ -3,4 +3,4 @@ UI,com.mediscreen.UI,UiApplication,5,3,0,0,2,1,1,1,1,1
 UI,com.mediscreen.UI.models,Note,169,41,38,0,1,6,23,10,4,10
 UI,com.mediscreen.UI.models,Patient,279,60,62,0,1,9,37,14,6,14
 UI,com.mediscreen.UI.controllers,PatientController,0,151,8,12,0,32,8,9,0,7
-UI,com.mediscreen.UI.controllers,NoteController,0,165,6,10,0,30,6,9,0,7
+UI,com.mediscreen.UI.controllers,NoteController,0,150,6,10,0,30,6,9,0,7

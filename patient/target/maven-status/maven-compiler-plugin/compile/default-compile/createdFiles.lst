@@ -1,0 +1,8 @@
+com\mediscreen\patient\controllers\PatientRestController.class
+com\mediscreen\patient\configs\WebConfig.class
+com\mediscreen\patient\models\Patient.class
+com\mediscreen\patient\PatientApplication.class
+com\mediscreen\patient\repos\PatientRepo.class
+com\mediscreen\patient\configs\SwaggerConfig.class
+com\mediscreen\patient\services\PatientService.class
+com\mediscreen\patient\services\PatientServiceImpl.class

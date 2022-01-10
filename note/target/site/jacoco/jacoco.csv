@@ -3,5 +3,5 @@ note,com.mediscreen.note.configs,SwaggerConfig,0,29,0,0,0,11,0,3,0,3
 note,com.mediscreen.note.configs,WebConfig,0,24,0,0,0,5,0,2,0,2
 note,com.mediscreen.note.controllers,NoteRestController,0,49,0,0,0,6,0,6,0,6
 note,com.mediscreen.note,NoteApplication,5,3,0,0,2,1,1,1,1,1
-note,com.mediscreen.note.services,NoteServiceImpl,0,165,0,12,0,37,0,15,0,9
-note,com.mediscreen.note.models,Note,169,41,38,0,1,6,23,10,4,10
+note,com.mediscreen.note.services,NoteServiceImpl,0,165,0,12,0,36,0,15,0,9
+note,com.mediscreen.note.models,Note,169,57,38,0,1,2,23,10,4,10

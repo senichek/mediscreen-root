@@ -10,13 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "ui-notes", url = "localhost:8081")
+//@FeignClient(name = "ui-notes", url = "localhost:8081")
+@FeignClient(name = "ui-notes", url = "${note.feign.client.url}") // URL is set up in .properties because we will use different URLs depending on the Profile.
 public interface NoteFeignClient {
-
-    /* @PostMapping(value = "/patHistory/add/{userId}")
-    public ResponseEntity<Note> createNote(@PathVariable("userId") Integer id, @RequestBody Note note) throws Exception {
-        return new ResponseEntity<>(noteService.create(note, id), HttpStatus.OK);
-    } */
 
     @PostMapping(value = "/rest/patHistory/add/{userId}")
     Note createNote(@PathVariable("userId") Integer userId, @RequestBody Note note);

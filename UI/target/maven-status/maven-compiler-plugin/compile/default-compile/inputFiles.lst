@@ -1,8 +1,8 @@
-C:\Openclassrooms\Project_9\UI\src\main\java\com\mediscreen\UI\controllers\PatientController.java
-C:\Openclassrooms\Project_9\UI\src\main\java\com\mediscreen\UI\UiApplication.java
-C:\Openclassrooms\Project_9\UI\src\main\java\com\mediscreen\UI\webClients\NoteFeignClient.java
-C:\Openclassrooms\Project_9\UI\src\main\java\com\mediscreen\UI\models\Note.java
-C:\Openclassrooms\Project_9\UI\src\main\java\com\mediscreen\UI\controllers\NoteController.java
-C:\Openclassrooms\Project_9\UI\src\main\java\com\mediscreen\UI\webClients\PatientFeignClient.java
-C:\Openclassrooms\Project_9\UI\src\main\java\com\mediscreen\UI\models\Patient.java
-C:\Openclassrooms\Project_9\UI\src\main\java\com\mediscreen\UI\webClients\ReportFeignClient.java
+C:\Openclassrooms\Project_9\mediscreen-root\UI\src\main\java\com\mediscreen\UI\models\Note.java
+C:\Openclassrooms\Project_9\mediscreen-root\UI\src\main\java\com\mediscreen\UI\UiApplication.java
+C:\Openclassrooms\Project_9\mediscreen-root\UI\src\main\java\com\mediscreen\UI\webClients\PatientFeignClient.java
+C:\Openclassrooms\Project_9\mediscreen-root\UI\src\main\java\com\mediscreen\UI\models\Patient.java
+C:\Openclassrooms\Project_9\mediscreen-root\UI\src\main\java\com\mediscreen\UI\webClients\ReportFeignClient.java
+C:\Openclassrooms\Project_9\mediscreen-root\UI\src\main\java\com\mediscreen\UI\controllers\PatientController.java
+C:\Openclassrooms\Project_9\mediscreen-root\UI\src\main\java\com\mediscreen\UI\controllers\NoteController.java
+C:\Openclassrooms\Project_9\mediscreen-root\UI\src\main\java\com\mediscreen\UI\webClients\NoteFeignClient.java

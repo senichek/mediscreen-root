@@ -1,8 +1,9 @@
-C:\Openclassrooms\Project_9\report\src\main\java\com\mediscreen\report\services\ReportService.java
-C:\Openclassrooms\Project_9\report\src\main\java\com\mediscreen\report\controllers\ReportController.java
-C:\Openclassrooms\Project_9\report\src\main\java\com\mediscreen\report\models\Note.java
-C:\Openclassrooms\Project_9\report\src\main\java\com\mediscreen\report\webClients\PatientFeignClient.java
-C:\Openclassrooms\Project_9\report\src\main\java\com\mediscreen\report\models\Risk.java
-C:\Openclassrooms\Project_9\report\src\main\java\com\mediscreen\report\ReportApplication.java
-C:\Openclassrooms\Project_9\report\src\main\java\com\mediscreen\report\webClients\NoteFeignClient.java
-C:\Openclassrooms\Project_9\report\src\main\java\com\mediscreen\report\models\Patient.java
+C:\Openclassrooms\Project_9\mediscreen-root\report\src\main\java\com\mediscreen\report\models\Risk.java
+C:\Openclassrooms\Project_9\mediscreen-root\report\src\main\java\com\mediscreen\report\controllers\ReportController.java
+C:\Openclassrooms\Project_9\mediscreen-root\report\src\main\java\com\mediscreen\report\webClients\PatientFeignClient.java
+C:\Openclassrooms\Project_9\mediscreen-root\report\src\main\java\com\mediscreen\report\configs\WebConfig.java
+C:\Openclassrooms\Project_9\mediscreen-root\report\src\main\java\com\mediscreen\report\ReportApplication.java
+C:\Openclassrooms\Project_9\mediscreen-root\report\src\main\java\com\mediscreen\report\webClients\NoteFeignClient.java
+C:\Openclassrooms\Project_9\mediscreen-root\report\src\main\java\com\mediscreen\report\models\Patient.java
+C:\Openclassrooms\Project_9\mediscreen-root\report\src\main\java\com\mediscreen\report\models\Note.java
+C:\Openclassrooms\Project_9\mediscreen-root\report\src\main\java\com\mediscreen\report\services\ReportService.java

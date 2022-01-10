@@ -10,6 +10,31 @@ services:
       #- MYSQL_USER=root - if we use "root" as a db userName we do not need to specify it.
       - MYSQL_ROOT_PASSWORD=rootroot
       - MYSQL_DATABASE=mediscreen
+  note-db:
+    image: mongo
+    #ports:
+    #  - 27018:27017
+    networks:
+      - mediscreen-app-net
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootroot
+      MONGO_INITDB_DATABASE: note
+  note-rest-api:
+    build: /note
+    ports:
+      - "8081:8081"
+    networks:
+      - mediscreen-app-net
+    depends_on:
+      - note-db
+  report-rest-api:
+    build: /report
+    ports:
+      - "8083:8083"
+    networks:
+      - mediscreen-app-net
   patient-rest-api:
   # Path to the folder where the sub-project is located, in this case 
   # it's /mediscreen_root/patient, so we can specify just /patient
@@ -19,7 +44,15 @@ services:
     networks:
       - mediscreen-app-net
     depends_on:
-      - patient-db  
-
+      - patient-db
+      # wait-for-it.sh is placed into the root of the patient subproject
+    entrypoint: ["./wait-for-it.sh", "--timeout=40", "patient-db:3306", "--", "java", "-jar", "/patient-0.0.1-SNAPSHOT.jar"]
+  ui:
+    build: /UI
+    ports:
+      - "8082:8082"
+    networks:
+      - mediscreen-app-net
+  
 networks:
   mediscreen-app-net:
